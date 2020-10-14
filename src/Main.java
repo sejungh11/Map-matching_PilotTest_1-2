@@ -4,9 +4,9 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         System.out.println("===== [YSY] Map-matching PilotTest 1-2 =====");
-        int testNo = 1; // 여기만 바꿔주면 됨 (1, 2, 3)
+        int testNo = 2; // 여기만 바꿔주면 됨 (1, 2, 3)
         FileIO fileIO = new FileIO(testNo);
-        // 도로네트워크 파일에서 읽어와 생성
+        // 파일에서 읽어와 도로네트워크 생성
         RoadNetwork roadNetwork = fileIO.generateRoadNetwork();
 
         // GPS points와 routePoints를 저장할 ArrayList생성
@@ -20,6 +20,7 @@ public class Main {
         int timestamp = 0;
         for (Point point : routePointArrayList) {
             GPSPoint gpsPoint = new GPSPoint(timestamp, point);
+            gpsPointArrayList.add(gpsPoint);
             timestamp++;
         }
 
@@ -27,7 +28,7 @@ public class Main {
         for (int i = 0; i < gpsPointArrayList.size(); i++) {
             System.out.println(routePointArrayList.get(i));
             System.out.println(gpsPointArrayList.get(i));
-            Thread.sleep(500); // 500ms 마다 출력
+            //Thread.sleep(500); // 500ms 마다 출력
         }
         //유림이가 썼던 코드
         Point gpsPoint = new Point(1.0,2.0);

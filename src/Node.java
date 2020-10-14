@@ -40,7 +40,7 @@ public class Node {
     }
     //////////////////////////////////////////////
 
-    // 이 노드를 startNode 혹은 endNode로 가지는 link의 arraylist 반환
+    // [NOT VERIFIED] 이 노드를 startNode 혹은 endNode로 가지는 link의 arraylist 반환
     public ArrayList<Link> includingLinks ( ArrayList<Link> linkArrayList) {
         ArrayList<Link> resultLinks = new ArrayList<>();
         for (Link link : linkArrayList) {

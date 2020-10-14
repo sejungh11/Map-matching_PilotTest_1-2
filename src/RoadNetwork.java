@@ -22,6 +22,17 @@ public class RoadNetwork {
         return new Node(-1, new Point((double)-99,(double)-99));
     }
 
+    // _linkID를 linkID로 가지는 link반환
+    public Link getLink (int _linkID) {
+        for (Link currLink : linkArrayList) {
+            if (currLink.getLinkID() == _linkID) {
+                return currLink;
+            }
+        }
+        // 탐색에 실패한 경우 nodeId가 -1인 Link반환
+        return new Link(-1,-1,-1,(double)-1);
+    }
+
     // testNo에 맞게 경로 Point로 생성하는 작업
     // 아직  startNode가 닿는지 endNode가 닿는지에 따라 순서대로/역순으로 나오는 로직은 추가 안함
     public ArrayList<Point> routePoints (int testNo) {
@@ -29,21 +40,33 @@ public class RoadNetwork {
         if (testNo == 1) {
             // node0 에서 node 55로 가는 경로
             // link route : 0->3->20->22->25->41->58->74->89->91->93->96
-            routePoints.addAll(linkArrayList.get(0).getInvolvingPointList());
-            routePoints.addAll(linkArrayList.get(3).getInvolvingPointList());
-            routePoints.addAll(linkArrayList.get(20).getInvolvingPointList());
-            routePoints.addAll(linkArrayList.get(22).getInvolvingPointList());
-            routePoints.addAll(linkArrayList.get(25).getInvolvingPointList());
-            routePoints.addAll(linkArrayList.get(41).getInvolvingPointList());
-            routePoints.addAll(linkArrayList.get(58).getInvolvingPointList());
-            routePoints.addAll(linkArrayList.get(74).getInvolvingPointList());
-            routePoints.addAll(linkArrayList.get(89).getInvolvingPointList());
-            routePoints.addAll(linkArrayList.get(91).getInvolvingPointList());
-            routePoints.addAll(linkArrayList.get(93).getInvolvingPointList());
-            routePoints.addAll(linkArrayList.get(96).getInvolvingPointList());
-            return routePoints;
+            routePoints.addAll(getLink(0).getInvolvingPointList());
+            routePoints.addAll(getLink(3).getInvolvingPointList());
+            routePoints.addAll(getLink(20).getInvolvingPointList());
+            routePoints.addAll(getLink(22).getInvolvingPointList());
+            routePoints.addAll(getLink(25).getInvolvingPointList());
+            routePoints.addAll(getLink(41).getInvolvingPointList());
+            routePoints.addAll(getLink(58).getInvolvingPointList());
+            routePoints.addAll(getLink(74).getInvolvingPointList());
+            routePoints.addAll(getLink(89).getInvolvingPointList());
+            routePoints.addAll(getLink(91).getInvolvingPointList());
+            routePoints.addAll(getLink(93).getInvolvingPointList());
+            routePoints.addAll(getLink(96).getInvolvingPointList());
         } else if (testNo == 2) {
+            // node0 에서 node 55로 가는 경로
+            // link route : 0->3->13->23->27->36->46->48->52->58
+            routePoints.addAll(getLink(0).getInvolvingPointList());
 
+            routePoints.addAll(getLink(3).getInvolvingPointList());
+            System.out.println(getLink(3).getInvolvingPointList());
+            routePoints.addAll(getLink(13).getInvolvingPointList());
+            routePoints.addAll(getLink(23).getInvolvingPointList());
+            routePoints.addAll(getLink(27).getInvolvingPointList());
+            routePoints.addAll(getLink(36).getInvolvingPointList());
+            routePoints.addAll(getLink(46).getInvolvingPointList());
+            routePoints.addAll(getLink(48).getInvolvingPointList());
+            routePoints.addAll(getLink(52).getInvolvingPointList());
+            routePoints.addAll(getLink(58).getInvolvingPointList());
         } else if (testNo == 3) {
 
         } return routePoints;

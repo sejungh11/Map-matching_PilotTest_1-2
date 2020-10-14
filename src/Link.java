@@ -71,17 +71,17 @@ public class Link {
     }
     //////////////////////////////////////
 
-    // 이 링크의 startNode(이 아이)와 이웃하는(이 아이를 startNode혹은 endNode로 가지는) links 출력
+    //  [NOT VERIFIED] 이 링크의 startNode(이 아이)와 이웃하는(이 아이를 startNode혹은 endNode로 가지는) links 출력
     public ArrayList<Link> linksNeighborOnStartNode (RoadNetwork roadNetwork) {
         return roadNetwork.getNode(startNodeID).includingLinks(roadNetwork.linkArrayList);
     }
 
-    // 이 링크의 endNode(이 아이)와 이웃하는(이 아이를 startNode혹은 endNode로 가지는) links 출력
+    //  [NOT VERIFIED] 이 링크의 endNode(이 아이)와 이웃하는(이 아이를 startNode혹은 endNode로 가지는) links 출력
     public ArrayList<Link> linksNeighborOnEndNode (RoadNetwork roadNetwork) {
         return roadNetwork.getNode(endNodeID).includingLinks(roadNetwork.linkArrayList);
     }
 
-    // 이 링크의 startNode endNode(이 아이)와 이웃하는(이 아이를 startNode혹은 endNode로 가지는) links 출력
+    //  [NOT VERIFIED] 이 링크의 startNode endNode(이 아이)와 이웃하는(이 아이를 startNode혹은 endNode로 가지는) links 출력
     public ArrayList<Link> linksNeighborOnStartOrEndNode (RoadNetwork roadNetwork) {
         ArrayList<Link> resultLinks = new ArrayList<>();
         resultLinks.addAll(linksNeighborOnStartNode(roadNetwork));
