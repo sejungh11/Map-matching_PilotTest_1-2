@@ -33,6 +33,7 @@ public class RoadNetwork {
         return new Link(-1,-1,-1,(double)-1);
     }
     // nodeID_s를 start node ID로, nodeID_e를 end node id로 가지는 가지는 link반환
+    // 혹은 nodeID_e를 start node ID로, nodeID_s를 end node id로 가지는 가지는 link반환
     public Link getLink (int nodeID_s, int nodeID_e) {
         for (Link currLink : linkArrayList) {
             if ((currLink.getStartNodeID() == nodeID_s) && (currLink.getEndNodeID() == nodeID_e)
