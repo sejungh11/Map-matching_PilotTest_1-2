@@ -26,10 +26,14 @@ public class Main {
 
         // origin route points와 랜덤하게 생성된 GPS points 500ms에 한번씩 출력하기
         for (int i = 0; i < gpsPointArrayList.size(); i++) {
-            System.out.println(routePointArrayList.get(i));
-            System.out.println(gpsPointArrayList.get(i));
+            //System.out.println(routePointArrayList.get(i));
+            //System.out.println(gpsPointArrayList.get(i));
             //Thread.sleep(500); // 500ms 마다 출력
         }
+
+        System.out.println("test4");
+        System.out.println(roadNetwork.routePoints(1));/////////////////
+
         //유림이가 썼던 코드
         Point gpsPoint = new Point(1.0,2.0);
         ArrayList<Link> candidateLink = new ArrayList<>();

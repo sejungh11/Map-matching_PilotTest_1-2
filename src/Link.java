@@ -71,21 +71,38 @@ public class Link {
     }
     //////////////////////////////////////
 
-    //  [NOT VERIFIED] 이 링크의 startNode(이 아이)와 이웃하는(이 아이를 startNode혹은 endNode로 가지는) links 출력
+    //  [VERIFIED] 이 링크의 startNode(이 아이)와 이웃하는(이 아이를 startNode혹은 endNode로 가지는) links 출력
     public ArrayList<Link> linksNeighborOnStartNode (RoadNetwork roadNetwork) {
-        return roadNetwork.getNode(startNodeID).includingLinks(roadNetwork.linkArrayList);
+        ArrayList<Link> result = roadNetwork.getNode(startNodeID).includingLinks(roadNetwork.linkArrayList);
+        for (int i=0;i<result.size();i++) {
+            Link l = result.get(i);
+            if (l.getLinkID() == linkID) {
+                result.remove(l);
+                i--;
+            }
+        }
+        return result;
     }
 
-    //  [NOT VERIFIED] 이 링크의 endNode(이 아이)와 이웃하는(이 아이를 startNode혹은 endNode로 가지는) links 출력
+    //  [VERIFIED] 이 링크의 endNode(이 아이)와 이웃하는(이 아이를 startNode혹은 endNode로 가지는) links 출력
     public ArrayList<Link> linksNeighborOnEndNode (RoadNetwork roadNetwork) {
-        return roadNetwork.getNode(endNodeID).includingLinks(roadNetwork.linkArrayList);
+        ArrayList<Link> result =  roadNetwork.getNode(endNodeID).includingLinks(roadNetwork.linkArrayList);
+        for (int i=0;i<result.size();i++) {
+            Link l = result.get(i);
+            if (l.getLinkID() == linkID) {
+                result.remove(l);
+                i--;
+            }
+        }
+        return result;
     }
 
-    //  [NOT VERIFIED] 이 링크의 startNode endNode(이 아이)와 이웃하는(이 아이를 startNode혹은 endNode로 가지는) links 출력
+    //  [VERIFIED] 이 링크의 startNode endNode(이 아이)와 이웃하는(이 아이를 startNode혹은 endNode로 가지는) links 출력
     public ArrayList<Link> linksNeighborOnStartOrEndNode (RoadNetwork roadNetwork) {
         ArrayList<Link> resultLinks = new ArrayList<>();
         resultLinks.addAll(linksNeighborOnStartNode(roadNetwork));
         resultLinks.addAll(linksNeighborOnEndNode(roadNetwork));
+
         return resultLinks;
     }
 
